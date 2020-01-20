@@ -11,8 +11,24 @@ This library provide:
 ```js
 const HPN = require('HuaweiPushNotification').HuaweiPushNotification;
 let hpn = new HPN(HpnConfig);
-```
 
+let message = {
+  data: {}, // will be stringify internally. 
+  notification: {
+    "title": "title",
+    "body": "body"
+  },
+  android: { /* as per Huawei' android Parameter */ },
+  "token": ["Abcd1234"]
+}
+
+hpn.sendMessage(message).then(x => {
+	console.log(x)
+}).catch(err => {
+	console.log(err)
+})
+```
+[Huawei Push Palyload](https://developer.huawei.com/consumer/en/service/hms/catalog/huaweipush_v3.html?page=hmssdk_huaweipush_api_reference_messagesend) 
 ### HpnConfig required: 
 `appSecret`: Huawei' app secret token.
 
