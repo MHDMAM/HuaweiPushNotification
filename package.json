@@ -1,0 +1,12 @@
+{
+  "name": "HuaweiPushNotification",
+  "version": "0.1",
+  "description": "Huawei Push Notification",
+  "author": "Mhd Abdulkarim Al Midani",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "request-promise-native": "^1.0.8"
+  }
+}
