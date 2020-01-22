@@ -39,7 +39,7 @@ module.exports.HuaweiPushNotification = class HuaweiPushNotification {
       try {
         that._tokenData = await that._auth.refreshToken();
         /** refresh token 2 mins before expiry. **/
-        setTimeout(that.refreshToken, (that._expiry - 120) * 1000);
+        setTimeout(that.refreshToken, (that._tokenData.expiry - 120) * 1000);
         that._message.refreshToken(that._tokenData.token);
         that._refreshTokenFail = 0;
         resolve();
@@ -53,7 +53,7 @@ module.exports.HuaweiPushNotification = class HuaweiPushNotification {
     })
   }
 
-  sendMessage(message) {
+  sendMessage(message, validate_only = false) {
     return this._WaitForToken.then(() => {
       return this._message.send(message);
     })
