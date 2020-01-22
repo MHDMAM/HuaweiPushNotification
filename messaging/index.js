@@ -41,13 +41,12 @@ module.exports.Messaging = class Messaging {
 
     if (dryRun) {
       return this._httpClient.sendWithRetry(option).then(res => {
-        let data = res.data;
-        return data;
+        return res.data || res;
       });
     }
     return this._httpClient.send(option).then(res => {
-      let data = res.data;
-      return data;
+      return res.data || res;
+
     });
   }
 
