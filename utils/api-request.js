@@ -2,8 +2,7 @@ const request = require('request-promise');
 const _ = require('lodash');
 
 async function _Send(options) {
-  console.log(options);
-
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   return request(options)
     .then(result => {
       return Promise.resolve(createHttpResponse(result));
